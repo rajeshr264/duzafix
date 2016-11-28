@@ -1,1 +1,1 @@
-# duzacheck
+# duzarc : run checks,generate report
