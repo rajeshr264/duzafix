@@ -1,1 +1,1 @@
-# duzafix
+# duzacheck
