@@ -1,1 +1,1 @@
-# duzarc : run checks,generate report
+# duzarac : run all checks,generate report
