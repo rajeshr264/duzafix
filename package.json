@@ -1,0 +1,27 @@
+{
+  "name": "duzarac",
+  "version": "0.0.1",
+  "description": "Runs a static check for security holes in server-side javascript code (Node.js app code).",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "ava test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajeshr264/duzarac.git"
+  },
+  "keywords": [
+    "security",
+    "javascript",
+    "node.js"
+  ],
+  "author": "Rajesh Radhakrishnan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rajeshr264/duzarac/issues"
+  },
+  "homepage": "https://github.com/rajeshr264/duzarac#readme"
+}
