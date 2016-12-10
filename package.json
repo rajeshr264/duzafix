@@ -2,7 +2,7 @@
   "name": "duzarac",
   "version": "0.0.1",
   "description": "Runs a static check for security holes in server-side javascript code (Node.js app code).",
-  "main": "index.js",
+  "main": "duzarac.js",
   "directories": {
     "test": "test"
   },
@@ -23,5 +23,15 @@
   "bugs": {
     "url": "https://github.com/rajeshr264/duzarac/issues"
   },
-  "homepage": "https://github.com/rajeshr264/duzarac#readme"
+  "homepage": "https://github.com/rajeshr264/duzarac#readme",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "esprima": "^3.1.2",
+    "esprima-ast-utils": "0.0.6",
+    "fs": "0.0.1-security",
+    "glob": "^7.1.1"
+  }
+  "devDependencies": {
+    "ava": "^0.17.0"
+  }
 }
