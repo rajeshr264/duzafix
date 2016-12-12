@@ -1,12 +1,7 @@
-function command_injection(options) {
-	
-	this._ast = options.ast;
+// CommonJS module style
+function command_injection() {
 
-	if (!options.ast) {
-		throw new Error('Esprima-AST object must be specified as an input parameter.');
-	}
-
-	var this._result_strings = [];
+	var _violations = [];
 
 	// callback function
 	function isEvalIdentifier(node) {
@@ -16,9 +11,9 @@ function command_injection(options) {
 			return true;
 		} else
 			return false;
-	}	
+	}
 
-	var command_injection.prototype.run = function() {  
+	command_injection.prototype.run = function(ast) {  
 
 		let ast_walker = require('esprima-ast-utils');
 		var eval_func_instances = ast_walker.filter(ast, isEvalIdentifier);
@@ -28,9 +23,11 @@ function command_injection(options) {
 			for (i=0;i<eval_func_instances.length;i++) {
 				var str = "Line Num: " + eval_func_instances[i].loc.start.line 
 						  + " Col: " + eval_func_instances[i].loc.start.column;
-				this._result_strings = this._result_strings.concat(str);
+				_violations.push(str);
 			}
 		}
+
+		return _violations;
 	}
 }
 

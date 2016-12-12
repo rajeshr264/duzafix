@@ -8,9 +8,9 @@ function option_parser() {
 	}
 
 	// exported method
-	option_parser.prototype.parse = function() {
+	option_parser.prototype.parse = function(argv) {
 
-		if (process.argv.length == 2) {
+		if (argv.length == 0) {
 			console.log("Error: No arguments specified. Run \'node duzarac.js --help\'");
 			process.exit(0);
 		}
@@ -20,21 +20,23 @@ function option_parser() {
 		program
 			.version('0.0.1')
 			.usage('[options]')
-			.option('-j, --js <file>[,<file>]', 'Specify a JS file or a Path regex in quotes. For eg: -j parser.js or -j \"src/*.js\"')
+			.option('-j, --js <file>[,<file>]', 'Specify comma seperated JS files or a Path regex in quotes. For eg: -j parser.js,sh.js or -j \"src/*.js\"')
 			.option('-f, --file <file>', 'Specify a file that contains JS file paths')
 			.option('-o, --output <file>', 'Specify the Report file')
-			.parse(process.argv);
+			.parse(argv);
 
 		// Store all the JS files specified
-		var this._js_files = [];
+		var _js_files = [];
 
 		if (program.js) {
 			var f = program.js.split(',');
+		
 			for (var i = 0; i < f.length; ++i) {
 				var jsf = parse_glob(f[i]);
-				this._js_files = this._js_files.concat(jsf);
+				_js_files = _js_files.concat(jsf);
 			}
-		}
+			program.js = undefined;//reset because it caused AVA test failures
+		}  
 
 		if (program.file) {
 			var fs = require('fs');
@@ -45,14 +47,23 @@ function option_parser() {
 					continue;
 				}
 				var jsf = parse_glob(f[i]);
-				this._js_files = this._js_files.concat(jsf);
+				_js_files = _js_files.concat(jsf);
 			}
+			program.file = undefined;//reset because it caused AVA test failures
 		}
 
-		option_parser.prototype.js_files = this._js_files;
 
-		option_parser.output_file = program.output;
+		if (_js_files.length == 0) {
+			console.log("Error: No javascript files specified via -j or -f options.");
+			process.exit(1);
 
+		}
+
+		option_parser.prototype.js_files = _js_files;
+
+		option_parser.prototype.output_file = program.output;
+		
+		program.output=undefined;//reset because it caused AVA test failures
 	}
 }
 
