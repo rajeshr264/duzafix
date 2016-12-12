@@ -8,16 +8,12 @@ function report() {
 	var _violations_found = {};
 
 	// public APIs
-	report.prototype.add_violation = function(filename, check_tag, line_number, column_number) {
-
-		// store all violations array of strings, per filename 
-		const str = "\tCheck#: " + check_tag + "\tLine#: " + line_number + "\tCol#: " + column_number + "\n";
+	report.prototype.add_violation = function(filename, new_violations) {
 		if (filename in _violations_found) { // has this filename been registered before?
-			var value = _violations_found[filename];
-			value += str;
-			_violations_found[filename] = value; //  append this violation to existing list
+			var current_violations = _violations_found[filename];
+			_violations_found[filename] =  current_violations.concat(violations); //  append this violation to existing list
 		} else {
-			_violations_found[filename] = str; //  add first violation
+			_violations_found[filename] = new_violations; //  add first violation
 		}
 	}
 
@@ -43,6 +39,7 @@ function report() {
 			fs.appendFileSync(_report_filename,"\nFile : " + filename + "\n");
 			fs.appendFileSync(_report_filename,_violations_found[filename]);
 		}
+
 	}
 }
 module.exports = report;

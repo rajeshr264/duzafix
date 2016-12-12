@@ -20,8 +20,8 @@ function command_injection() {
 		// publish the info about the found eval() instances
 		if (eval_func_instances != undefined ) { 
 			for (i=0;i<eval_func_instances.length;i++) {
-				var str = "Line Num: " + eval_func_instances[i].loc.start.line 
-						  + " Col: " + eval_func_instances[i].loc.start.column;
+				var str = "\tCheck: CIEV" + "\tLine Num: " + eval_func_instances[i].loc.start.line 
+						  + "\tCol: " + eval_func_instances[i].loc.start.column + '\n';
 				violations.push(str);
 			}
 		}

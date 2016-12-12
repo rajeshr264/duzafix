@@ -11,7 +11,7 @@ test('-j,-f options test', t => {
       '-f', 'test/data_files/js_files.txt'
     ];
 
-  opt_i.parse(argv);
+  opt_i.run(argv);
   const correct_answer =
     ['test/data_files/test1.js',
       'test/data_files/test2.js',
@@ -29,7 +29,7 @@ test('-j,-o options test', t => {
       '-o', 'test.log'
     ];
 
-  opt_i.parse(argv);
+  opt_i.run(argv);
   const correct_answer = ['test/data_files/test2.js'];
 
  // t.deepEqual(correct_answer, opt_i.js_files);

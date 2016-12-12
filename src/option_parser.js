@@ -8,7 +8,7 @@ function option_parser() {
 	}
 
 	// exported method
-	option_parser.prototype.parse = function(argv) {
+	option_parser.prototype.run = function(argv) {
 
 		if (argv.length == 0) {
 			console.log("Error: No arguments specified. Run \'node duzarac.js --help\'");
@@ -62,7 +62,7 @@ function option_parser() {
 		option_parser.prototype.js_files = _js_files;
 
 		option_parser.prototype.output_file = program.output;
-		
+
 		program.output=undefined;//reset because it caused AVA test failures
 	}
 }
