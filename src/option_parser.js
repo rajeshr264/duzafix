@@ -21,8 +21,8 @@ function option_parser() {
 			.version('0.0.1')
 			.usage('[options]')
 			.option('-j, --js <file>[,<file>]', 'Specify comma seperated JS files or a Path regex in quotes. For eg: -j parser.js,sh.js or -j \"src/*.js\"')
-			.option('-f, --file <file>', 'Specify a file that contains JS file paths')
-			.option('-o, --output <file>', 'Specify the Report file')
+			.option('-f, --file <file>', 'Specify a file that contains JS file paths. For eg: -f js_files.txt')
+			.option('-o, --output <file>', 'Specify the Output Report file')
 			.parse(argv);
 
 		// Store all the JS files specified
