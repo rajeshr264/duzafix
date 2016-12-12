@@ -1,8 +1,6 @@
 // CommonJS module style
 function command_injection() {
 
-	var _violations = [];
-
 	// callback function
 	function isEvalIdentifier(node) {
 
@@ -17,17 +15,18 @@ function command_injection() {
 
 		let ast_walker = require('esprima-ast-utils');
 		var eval_func_instances = ast_walker.filter(ast, isEvalIdentifier);
+		var violations = [];
 
 		// publish the info about the found eval() instances
 		if (eval_func_instances != undefined ) { 
 			for (i=0;i<eval_func_instances.length;i++) {
 				var str = "Line Num: " + eval_func_instances[i].loc.start.line 
 						  + " Col: " + eval_func_instances[i].loc.start.column;
-				_violations.push(str);
+				violations.push(str);
 			}
 		}
 
-		return _violations;
+		return violations;
 	}
 }
 
