@@ -1,6 +1,6 @@
 {
   "name": "Duzarac",
   "tagline": "Static checker of Server-side Javascript (node.js apps)",
-  "body": "### Welcome to Duzarac!\r\n",
+  "body": "### Welcome to Duzarac!\r\n\r\n# Checkout the code\r\n* git clone https://github.com/rajeshr264/duzarac.git\r\n* cd duzarac\r\n* npm install \r\n* node duzarac.js --help (shows the options)\r\n\r\n## Sample run:\r\n* node duzarac.js -j test/data_files/test1.js -o /tmp/report.log _(report will be in: /tmp/report.log)_\r\n* node duzarac.js -f test/data_files/js_files.txt _(report filename will be generated)_\r\n\r\n\r\n## To run AVA tests: \r\n* npm install --only=dev\r\n* npm t\r\n\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
