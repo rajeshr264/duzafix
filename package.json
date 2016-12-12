@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "ava test/*.js"
+    "test": "ava -v test/*.js"
   },
   "repository": {
     "type": "git",
