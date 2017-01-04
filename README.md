@@ -1,6 +1,9 @@
 # duzarac : run static checks for security holes on server-side javascript code
 *Welcome to Duzarac!*
 
+__Requirements__
+* node.js version: v6.9.2+
+
 __Checkout the code__
 * git clone https://github.com/rajeshr264/duzarac.git
 * cd duzarac
