@@ -13,7 +13,7 @@ test('Command Injection 1', t => {
   	const ast = esprima.parse(content,{loc:true});
   	var violations = ci_i.run(ast);
 
-  	const correct_answer = ["\tCheck: CIEV\tLine Num: 4\tCol: 11\n"];
+  	const correct_answer = ["\tCheck: CIEV\tLine Num: 4\tCol: 11\tSuggestion: Use JSON.parse()\n"];
 
   	t.deepEqual(violations,correct_answer);
 });
@@ -26,7 +26,7 @@ test('Command Injection 2', t => {
   	const ast = esprima.parse(content,{loc:true});
   	var violations = ci_i.run(ast);
 
-  	const correct_answer = ["\tCheck: CIEV\tLine Num: 2\tCol: 14\n"];
+  	const correct_answer = ["\tCheck: CIEV\tLine Num: 2\tCol: 14\tSuggestion: Use JSON.parse()\n"];
 
   	t.deepEqual(violations,correct_answer);
 });
@@ -39,7 +39,7 @@ test('Command Injection 3', t => {
   	const ast = esprima.parse(content,{loc:true});
   	var violations = ci_i.run(ast);
 
-  	const correct_answer = ["\tCheck: CIEV\tLine Num: 13\tCol: 2\n"];
+  	const correct_answer = ["\tCheck: CIEV\tLine Num: 13\tCol: 2\tSuggestion: Use JSON.parse()\n"];
 
   	t.deepEqual(violations,correct_answer);
 });

@@ -21,7 +21,8 @@ function command_injection() {
 		if (eval_func_instances != undefined ) { 
 			for (i=0;i<eval_func_instances.length;i++) {
 				var str = "\tCheck: CIEV" + "\tLine Num: " + eval_func_instances[i].loc.start.line 
-						  + "\tCol: " + eval_func_instances[i].loc.start.column + '\n';
+						  + "\tCol: " + eval_func_instances[i].loc.start.column;
+					str += "\tSuggestion: Use JSON.parse()" + '\n';
 				violations.push(str);
 			}
 		}

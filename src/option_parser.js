@@ -54,7 +54,7 @@ function option_parser() {
 
 
 		if (_js_files.length == 0) {
-			console.log("Error: No javascript files specified via -j or -f options.");
+			console.log("Error: No options specified. Run with '--help' option.");
 			process.exit(1);
 
 		}
